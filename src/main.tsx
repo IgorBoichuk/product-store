@@ -4,9 +4,11 @@ import App from "./components/App/App.tsx";
 import { Global } from "./styles/Global.ts";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Provider } from "react-redux";
+import { store } from "./Redux/store.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
     <Global />
     <ToastContainer
@@ -21,5 +23,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       pauseOnHover
       theme="dark"
     />
-  </React.StrictMode>
+  </Provider>
 );
