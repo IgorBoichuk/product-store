@@ -10,7 +10,7 @@ export const fetchProducts = createAsyncThunk(
       const { data } = await axios.get("https://dummyjson.com/products");
 
       return data.products;
-    } catch (error) {
+    } catch (error: any) {
       return thunkApi.rejectWithValue(error.message);
     }
   }

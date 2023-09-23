@@ -1,10 +1,20 @@
 import React from "react";
 import { styled } from "styled-components";
+import { useAppSelector } from "../../hooks/hook";
+import { Product } from "../../types/types";
+import { Card } from "../Card/Card";
 
 export const ProductList = () => {
+  const products: Product[] = useAppSelector(
+    (state) => state.productsList.products
+  );
   return (
     <div>
-      <StyledList></StyledList>
+      <StyledList>
+        {products.map((product) => (
+          <Card key={product.id} {...product} />
+        ))}
+      </StyledList>
     </div>
   );
 };

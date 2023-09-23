@@ -1,8 +1,9 @@
 // Slice - частина стейта
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchProducts } from "./operation";
+import { Product } from "../../types/types";
 type ProductsState = {
-  products: any;
+  products: Product[];
   loading: boolean;
   error: string;
   filter: string;
