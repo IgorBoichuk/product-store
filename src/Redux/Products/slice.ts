@@ -1,5 +1,6 @@
 // Slice - частина стейта
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchProducts } from "./operation";
 type ProductsState = {
   products: any;
   loading: boolean;
@@ -23,6 +24,11 @@ const slice = createSlice({
   name: "products",
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+      state.products = action.payload;
+    });
+  },
 });
 
 // створюємо редьюсер від нашого слайса для стора - глобальний великий стейт
