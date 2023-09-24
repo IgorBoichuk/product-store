@@ -2,8 +2,16 @@ import React from "react";
 import { styled } from "styled-components";
 import { StyledButton } from "../../styles/Global";
 import { Product } from "../../types/types";
+import { useAppDispatch } from "../../hooks/hook";
+import { addToCart } from "../../Redux/Cart/slice";
 
-export const Card = ({ title, description, price, thumbnail }: Product) => {
+export const Card = ({ id, title, description, price, thumbnail }: Product) => {
+  const dispatch = useAppDispatch();
+
+  const click = () => {
+    dispatch(addToCart({ id, title, description, price, thumbnail }));
+  };
+
   return (
     <StyledCard>
       <img src={thumbnail} alt={title} />
@@ -11,7 +19,7 @@ export const Card = ({ title, description, price, thumbnail }: Product) => {
       <p>{description}</p>
       <Options>
         <span>{price}$</span>
-        <StyledButton>Add to cart</StyledButton>
+        <StyledButton onClick={click}>Add to cart</StyledButton>
       </Options>
     </StyledCard>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import { styled } from "styled-components";
 import { useAppSelector } from "../../hooks/hook";
 import { Product } from "../../types/types";

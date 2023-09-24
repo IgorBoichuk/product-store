@@ -1,5 +1,4 @@
 import { ProductList } from "../components/ProductList/ProductList";
-import { Header } from "../components/Header/Header";
 import { Pagination } from "../components/Pagination/Pagination";
 import { useEffect } from "react";
 import { useAppDispatch } from "../hooks/hook";
@@ -12,7 +11,6 @@ export const Home = () => {
   }, [dispatch]);
   return (
     <>
-      <Header />
       <ProductList />
       <Pagination />
     </>
