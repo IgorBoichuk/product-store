@@ -3,14 +3,14 @@ import { useAppSelector } from "../hooks/hook";
 import { CartItem } from "../components/CartItem/CartItem";
 
 export const Cart = () => {
-  const cartProducts = useAppSelector((state) => state.cartList.list);
+  const { list, totalPrice } = useAppSelector((state) => state.cartList);
 
   return (
     <>
-      <TotalPrice>Total Price: {0}$</TotalPrice>
+      <TotalPrice>Total Price: {totalPrice}$</TotalPrice>
       <CartList>
         <hr />
-        {cartProducts.map((item) => (
+        {list.map((item) => (
           <CartItem {...item} key={item.id} />
         ))}
       </CartList>

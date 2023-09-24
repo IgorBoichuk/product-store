@@ -2,13 +2,20 @@ import React from "react";
 import { styled } from "styled-components";
 import { StyledButton } from "../../styles/Global";
 import { Product } from "../../types/types";
+import { useAppDispatch } from "../../hooks/hook";
+import { removeItem } from "../../Redux/Cart/slice";
+
 export const CartItem = ({ id, title, price, thumbnail }: Product) => {
+  const dispatch = useAppDispatch();
+
   return (
     <ItemCard>
       <img alt={title} src={thumbnail} />
       <span>{title}</span>
       <span>{price}$</span>
-      <StyledButton>Delete</StyledButton>
+      <StyledButton onClick={() => dispatch(removeItem(id))}>
+        Delete
+      </StyledButton>
     </ItemCard>
   );
 };
