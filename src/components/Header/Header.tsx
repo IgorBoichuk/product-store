@@ -2,14 +2,17 @@ import React from "react";
 import { styled } from "styled-components";
 import { StyledButton } from "../../styles/Global";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../hooks/hook";
 
 export const Header = () => {
   const navigate = useNavigate();
+  const { list } = useAppSelector((state) => state.cartList);
+
   return (
     <StyledHeader>
       <div onClick={() => navigate("/")}>Product Store</div>
       <StyledButtonCard onClick={() => navigate("/cart")}>
-        Cart{" "}
+        Cart {list.length ? <CartCount>{list.length}</CartCount> : null}
       </StyledButtonCard>
     </StyledHeader>
   );

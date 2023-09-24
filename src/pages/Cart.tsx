@@ -7,7 +7,7 @@ export const Cart = () => {
 
   return (
     <>
-      <TotalPrice>Total Price: {totalPrice}$</TotalPrice>
+      <TotalPrice>Total Price: {totalPrice} $</TotalPrice>
       <CartList>
         <hr />
         {list.map((item) => (
