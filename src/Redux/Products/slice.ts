@@ -28,7 +28,11 @@ const slice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
+      state.loading = false;
       state.products = action.payload;
+    });
+    builder.addCase(fetchProducts.pending, (state) => {
+      state.loading = true;
     });
   },
 });
