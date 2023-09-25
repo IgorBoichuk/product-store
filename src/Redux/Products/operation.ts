@@ -6,20 +6,13 @@ import axios from "axios";
 // &skip=6
 // &select=price,title,thumbnail,description -
 
-type Paginations = {
-  perPage: number;
-  skipProducts: number;
-};
-
 axios.defaults.baseURL = "https://dummyjson.com";
 
 export const fetchProducts = createAsyncThunk(
   "fetchProducts",
-  async ({ perPage, skipProducts }: Paginations, thunkApi) => {
+  async (_, thunkApi) => {
     try {
-      const { data } = await axios.get(
-        `/products?limit=${perPage}&skip=${skipProducts}`
-      );
+      const { data } = await axios.get(`/products`);
 
       return data.products;
     } catch (error: any) {

@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App/App.tsx";
 import { Global } from "./styles/Global.ts";
@@ -14,8 +13,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <App />
       <Global />
       <ToastContainer
-        position="bottom-center"
-        autoClose={1000}
+        position="top-right"
+        autoClose={500}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -23,7 +22,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
       />
     </BrowserRouter>
   </Provider>
