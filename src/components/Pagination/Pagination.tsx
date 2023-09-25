@@ -5,11 +5,14 @@ import { nextBtn, prevBtn } from "../../Redux/Pagination/slice";
 
 export const Pagination = () => {
   const dispatch = useAppDispatch();
-  const { limit } = useAppSelector((state) => state.pagination);
+  const { limit, skip } = useAppSelector((state) => state.pagination);
 
   return (
     <Paginate>
-      <StyledButton onClick={() => dispatch(prevBtn(limit))}>
+      <StyledButton
+        disabled={skip < limit && true}
+        onClick={() => dispatch(prevBtn(limit))}
+      >
         Prev Page
       </StyledButton>
       <StyledButton onClick={() => dispatch(nextBtn(limit))}>

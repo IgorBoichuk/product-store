@@ -4,12 +4,15 @@ import { StyledButton } from "../../styles/Global";
 import { Product } from "../../types/types";
 import { useAppDispatch } from "../../hooks/hook";
 import { addToCart } from "../../Redux/Cart/slice";
+import { toast } from "react-toastify";
 
 export const Card = ({ id, title, description, price, thumbnail }: Product) => {
   const dispatch = useAppDispatch();
+  const notify = () => toast(`Ви додали в корзину ${title}`);
 
   const click = () => {
     dispatch(addToCart({ id, title, description, price, thumbnail }));
+    notify();
   };
 
   return (

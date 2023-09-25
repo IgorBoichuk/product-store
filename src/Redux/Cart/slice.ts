@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Product } from "../../types/types";
+import { toast } from "react-toastify";
 
 type CartSlice = {
   list: Product[];
@@ -28,6 +29,7 @@ const slice = createSlice({
       // if (index) {
       //   state.list.splice(index, 1);
       // }
+
       state.list = state.list.filter((item) => item.id !== action.payload);
       state.totalPrice = calcSum(state);
     },
