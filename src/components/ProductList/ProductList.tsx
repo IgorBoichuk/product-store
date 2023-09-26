@@ -7,13 +7,11 @@ export const ProductList = () => {
   const products: Product[] = useAppSelector(
     (state) => state.productsList.products
   );
-  const { limit, skip } = useAppSelector((state) => state.pagination);
-  const productsToShow = products.slice(skip, limit + skip);
 
   return (
     <div>
       <StyledList>
-        {productsToShow.map((product) => (
+        {products.map((product) => (
           <Card key={product.id} {...product} />
         ))}
       </StyledList>

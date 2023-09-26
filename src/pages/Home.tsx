@@ -7,11 +7,13 @@ import { Watch } from "react-loader-spinner";
 
 export const Home = () => {
   const { loading } = useAppSelector((state) => state.productsList);
+  const { limit, skip } = useAppSelector((state) => state.pagination);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    dispatch(fetchProducts({ limit, skip }));
+  }, [dispatch, limit, skip]);
+
   return (
     <>
       {loading ? (

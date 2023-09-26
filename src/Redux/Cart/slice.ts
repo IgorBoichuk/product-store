@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Product } from "../../types/types";
-import { toast } from "react-toastify";
 
 type CartSlice = {
   list: Product[];

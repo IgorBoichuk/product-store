@@ -10,8 +10,15 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <div onClick={() => navigate("/")}>Product Store</div>
-      <StyledButtonCard onClick={() => navigate("/cart")}>
+      <div
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Product Store
+      </div>
+
+      <StyledButtonCard onClick={() => list.length && navigate("/cart")}>
         Cart {list.length ? <CartCount>{list.length}</CartCount> : null}
       </StyledButtonCard>
     </StyledHeader>
