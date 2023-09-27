@@ -6,6 +6,7 @@ export const useToggle = () => {
   const open = () => {
     setIsOpen(true), console.log(isOpen);
   };
+
   const close = () => {
     setIsOpen(false), console.log(isOpen);
   };
