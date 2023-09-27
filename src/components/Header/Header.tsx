@@ -11,7 +11,7 @@ export const Header = () => {
   const navigate = useNavigate();
   const { list } = useAppSelector((state) => state.cartList);
 
-  const { isOpen, open } = useToggle();
+  const { isOpen, open, close } = useToggle();
 
   return (
     <StyledHeader>
