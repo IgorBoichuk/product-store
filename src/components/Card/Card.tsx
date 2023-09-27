@@ -1,4 +1,3 @@
-import React from "react";
 import { styled } from "styled-components";
 import { StyledButton } from "../../styles/Global";
 import { Product } from "../../types/types";

@@ -1,20 +1,17 @@
-import React from "react";
 import { styled } from "styled-components";
 import { StyledButton } from "../../styles/Global";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../hooks/hook";
 import { Modal } from "../Modal/Modal";
 import { Cart } from "../../pages/Cart";
-
-import { toggleModal } from "../../Redux/Modal/slice";
-import { useAppDispatch } from "../../hooks/hook";
 import { EmptyCart } from "../EmptyCart/EmptyCart";
+import { useToggle } from "../../hooks/toggle";
 
 export const Header = () => {
   const navigate = useNavigate();
   const { list } = useAppSelector((state) => state.cartList);
-  const { isModal } = useAppSelector((state) => state.modal);
-  const dispatch = useAppDispatch();
+
+  const { isOpen, open } = useToggle();
 
   return (
     <StyledHeader>
@@ -25,7 +22,7 @@ export const Header = () => {
       >
         Product Store
       </div>
-      {isModal &&
+      {isOpen &&
         (list.length ? (
           <Modal>
             <Cart />
@@ -33,8 +30,8 @@ export const Header = () => {
         ) : (
           <EmptyCart />
         ))}
-      {/* <StyledButtonCard onClick={() => list.length && navigate("/cart")}> */}
-      <StyledButtonCard onClick={() => dispatch(toggleModal(true))}>
+
+      <StyledButtonCard onClick={open}>
         Cart {list.length ? <CartCount>{list.length}</CartCount> : null}
       </StyledButtonCard>
     </StyledHeader>

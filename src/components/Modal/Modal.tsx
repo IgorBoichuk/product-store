@@ -1,20 +1,16 @@
-import React from "react";
 import { styled } from "styled-components";
 import { StyledButton } from "../../styles/Global";
-import { useAppDispatch, useAppSelector } from "../../hooks/hook";
-import { toggleModal } from "../../Redux/Modal/slice";
+import { useToggle } from "../../hooks/toggle";
 
 export const Modal = ({ children }) => {
-  const dispatch = useAppDispatch();
+  const { close } = useToggle();
 
   return (
     <Wrapper>
       <Content>
         <Header>
           <h1>Cart</h1>
-          <StyledButton onClick={() => dispatch(toggleModal(false))}>
-            Close
-          </StyledButton>
+          <StyledButton onClick={close}>Close</StyledButton>
         </Header>
         <hr />
         <Childrens>{children}</Childrens>
