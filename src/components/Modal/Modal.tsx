@@ -1,14 +1,20 @@
 import React from "react";
 import { styled } from "styled-components";
 import { StyledButton } from "../../styles/Global";
+import { useAppDispatch, useAppSelector } from "../../hooks/hook";
+import { toggleModal } from "../../Redux/Modal/slice";
 
 export const Modal = ({ children }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <Wrapper>
       <Content>
         <Header>
           <h1>Cart</h1>
-          <StyledButton>Close</StyledButton>
+          <StyledButton onClick={() => dispatch(toggleModal(false))}>
+            Close
+          </StyledButton>
         </Header>
         <hr />
         <Childrens>{children}</Childrens>
@@ -42,4 +48,5 @@ export const Childrens = styled.div`
   flex-direction: column;
   text-align: center;
   padding: 10px 30px;
+  color: black;
 `;
