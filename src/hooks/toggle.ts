@@ -1,19 +1,20 @@
 import { useState } from "react"
+import { ProductModal } from "../types/types"
 
 export const useToggle = () => {
 	const [isOpen, setIsOpen] = useState(false)
-	console.log(isOpen)
-	const open = () => {
+	const [currentItem, setCurrentItem] = useState<ProductModal>()
+
+	const open = (data: ProductModal) => {
 		setIsOpen(true)
-		console.log(isOpen)
+		setCurrentItem(data)
 	}
 
 	const close = () => {
 		setIsOpen(false)
-		console.log(isOpen)
 	}
 
 	const toggle = () => setIsOpen(isOpen => !isOpen)
 
-	return { isOpen, open, close, toggle }
+	return { isOpen, currentItem, open, close, toggle }
 }

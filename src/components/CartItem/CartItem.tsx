@@ -19,6 +19,7 @@ export const CartItem = ({ id, title, price, thumbnail }: Product) => {
 			<img alt={title} src={thumbnail} />
 			<span>{title}</span>
 			<span>{price}$</span>
+
 			<StyledButton onClick={handleRemove}>Delete</StyledButton>
 		</ItemCard>
 	)

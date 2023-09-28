@@ -1,10 +1,15 @@
 export type Product = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  thumbnail: string;
-};
+	id: number
+	title: string
+	description: string
+	price: number
+	thumbnail: string
+}
+
+export type ProductModal = Product & {
+	category?: string
+	brand?: string
+}
 
 // "id": 1,
 // "title": "iPhone 9",

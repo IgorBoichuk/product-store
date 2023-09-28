@@ -10,6 +10,12 @@ export const Home = () => {
 	const { limit, skip } = useAppSelector(state => state.pagination)
 	const dispatch = useAppDispatch()
 
+	// const obj = { name: "alex", age: 22 }
+	// const arr = []
+	// console.log(obj)
+	// arr.push({ ...obj, email: "asdfadsf" })
+	// console.log(arr)
+
 	useEffect(() => {
 		dispatch(fetchProducts({ limit, skip }))
 	}, [dispatch, limit, skip])

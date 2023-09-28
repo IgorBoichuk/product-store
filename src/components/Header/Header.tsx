@@ -22,14 +22,7 @@ export const Header = () => {
 			>
 				Product Store
 			</div>
-			{isOpen &&
-				(list.length ? (
-					<Modal close={close}>
-						<Cart />
-					</Modal>
-				) : (
-					<EmptyCart />
-				))}
+			{isOpen && <Modal close={close}>{list.length ? <Cart /> : <EmptyCart />}</Modal>}
 
 			<StyledButtonCard onClick={open}>
 				Cart {list.length ? <CartCount>{list.length}</CartCount> : null}
