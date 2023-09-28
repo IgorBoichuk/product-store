@@ -1,35 +1,35 @@
-import { ProductList } from "../components/ProductList/ProductList";
-import { Pagination } from "../components/Pagination/Pagination";
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../hooks/hook";
-import { fetchProducts } from "../Redux/Products/operation";
-import { Watch } from "react-loader-spinner";
+import { ProductList } from "../components/ProductList/ProductList"
+import { Pagination } from "../components/Pagination/Pagination"
+import { useEffect } from "react"
+import { useAppDispatch, useAppSelector } from "../hooks/hook"
+import { fetchProducts } from "../Redux/Products/operation"
+import { Watch } from "react-loader-spinner"
 
 export const Home = () => {
-  const { loading } = useAppSelector((state) => state.productsList);
-  const { limit, skip } = useAppSelector((state) => state.pagination);
-  const dispatch = useAppDispatch();
+	const { loading } = useAppSelector(state => state.productsList)
+	const { limit, skip } = useAppSelector(state => state.pagination)
+	const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    dispatch(fetchProducts({ limit, skip }));
-  }, [dispatch, limit, skip]);
+	useEffect(() => {
+		dispatch(fetchProducts({ limit, skip }))
+	}, [dispatch, limit, skip])
 
-  return (
-    <>
-      {loading ? (
-        <Watch
-          height="250"
-          width="250"
-          radius="27"
-          color="#4fa94d"
-          ariaLabel="watch-loading"
-          wrapperStyle={{}}
-          visible={true}
-        />
-      ) : null}
+	return (
+		<>
+			{loading ? (
+				<Watch
+					height="250"
+					width="250"
+					radius="27"
+					color="#4fa94d"
+					ariaLabel="watch-loading"
+					wrapperStyle={{}}
+					visible={true}
+				/>
+			) : null}
 
-      <ProductList />
-      <Pagination />
-    </>
-  );
-};
+			<ProductList />
+			<Pagination />
+		</>
+	)
+}
