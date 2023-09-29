@@ -2,16 +2,12 @@ import { styled } from "styled-components"
 import { StyledButton } from "../../styles/Global"
 import { useNavigate } from "react-router-dom"
 import { useAppSelector } from "../../hooks/hook"
-import { Modal } from "../Modal/Modal"
-import { Cart } from "../../pages/Cart"
-import { EmptyCart } from "../EmptyCart/EmptyCart"
-import { useToggle } from "../../hooks/toggle"
 
 export const Header = () => {
 	const navigate = useNavigate()
 	const { list } = useAppSelector(state => state.cartList)
 
-	const { isOpen, open, close } = useToggle()
+	// const { isOpen, open, close } = useToggle()
 
 	return (
 		<StyledHeader>
@@ -22,9 +18,12 @@ export const Header = () => {
 			>
 				Product Store
 			</div>
-			{isOpen && <Modal close={close}>{list.length ? <Cart /> : <EmptyCart />}</Modal>}
 
-			<StyledButtonCard onClick={open}>
+			<StyledButtonCard
+				onClick={() => {
+					navigate("/cart")
+				}}
+			>
 				Cart {list.length ? <CartCount>{list.length}</CartCount> : null}
 			</StyledButtonCard>
 		</StyledHeader>
