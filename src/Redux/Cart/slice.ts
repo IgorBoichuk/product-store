@@ -37,7 +37,7 @@ const slice = createSlice({
 					item.title.toLowerCase().includes(action.payload.toLowerCase()) ||
 					item.description.toLowerCase().includes(action.payload.toLowerCase())
 			)
-			console.log(filteredData)
+
 			state.filter = filteredData
 		},
 	},
