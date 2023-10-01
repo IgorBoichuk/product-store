@@ -1,4 +1,4 @@
-import { createGlobalStyle, styled } from 'styled-components'
+import { createGlobalStyle, styled } from "styled-components"
 
 export const Global = createGlobalStyle`
 body{
@@ -15,10 +15,14 @@ export const StyledButton = styled.button`
 	color: white;
 	border: none;
 	border-radius: 8px;
-	box-shadow: 2px 2px 3px 1px gray;
+	box-shadow: 2px 2px 5px 1px gray;
 	transition: all 0.1s ease-in;
+
 	&:hover {
 		cursor: pointer;
 		background-color: darkblue;
+	}
+	&:active {
+		box-shadow: none;
 	}
 `

@@ -26,7 +26,10 @@ export const Cart = () => {
 
 			<CartList>
 				<hr />
-				{list.length && filter.map(item => <CartItem {...item} key={item.id} />)}
+				{/* {list.length ? filter.map(item => <CartItem {...item} key={item.id} />) : null} */}
+				{filter.map(item => (
+					<CartItem {...item} key={item.id} />
+				))}
 			</CartList>
 		</>
 	)

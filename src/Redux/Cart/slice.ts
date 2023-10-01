@@ -5,6 +5,7 @@ type CartSlice = {
 	list: Product[]
 	filter: []
 	totalPrice: number
+	// inCart: boolean
 }
 
 const initialState: CartSlice = {
@@ -19,8 +20,16 @@ const slice = createSlice({
 	initialState,
 	reducers: {
 		addToCart: (state, action: PayloadAction<Product>) => {
-			state.list.push(action.payload)
+			const item = {
+				...action.payload,
+				count: 1,
+			}
+			// const inCart = state.list.filter(i => i.id === action.payload.id)
+			// console.log(inCart)
+
+			state.list.push(item)
 			state.totalPrice = calcSum(state)
+			state.filter = state.list
 		},
 		removeItem: (state, action: PayloadAction<number>) => {
 			// const index = state.list.findIndex((i) => i.id === action.payload);
@@ -29,7 +38,9 @@ const slice = createSlice({
 			// }
 
 			state.list = state.list.filter(item => item.id !== action.payload)
+
 			state.totalPrice = calcSum(state)
+			state.filter = state.list
 		},
 		cartQuary: (state, action) => {
 			const filteredData = state.list.filter(

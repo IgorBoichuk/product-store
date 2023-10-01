@@ -5,8 +5,9 @@ import { Product } from "../../types/types"
 import { useAppDispatch } from "../../hooks/hook"
 import { removeItem } from "../../Redux/Cart/slice"
 import { toast } from "react-toastify"
+import { CartItemCount } from "./CartItemCount"
 
-export const CartItem = ({ id, title, price, thumbnail }: Product) => {
+export const CartItem = ({ id, title, price, thumbnail, count }: Product) => {
 	const dispatch = useAppDispatch()
 
 	const notify = () => toast(`Ви видалили товар ${title}`)
@@ -19,7 +20,7 @@ export const CartItem = ({ id, title, price, thumbnail }: Product) => {
 			<img alt={title} src={thumbnail} />
 			<span>{title}</span>
 			<span>{price}$</span>
-
+			<CartItemCount count={count} />
 			<StyledButton onClick={handleRemove}>Delete</StyledButton>
 		</ItemCard>
 	)

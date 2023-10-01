@@ -4,6 +4,7 @@ export type Product = {
 	description: string
 	price: number
 	thumbnail: string
+	count: number
 }
 
 export type ProductModal = Product & {
