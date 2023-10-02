@@ -20,7 +20,7 @@ export const CartItem = ({ id, title, price, thumbnail, count }: Product) => {
 			<img alt={title} src={thumbnail} />
 			<span>{title}</span>
 			<span>{price}$</span>
-			<CartItemCount count={count} />
+			<CartItemCount count={count} id={id} />
 			<StyledButton onClick={handleRemove}>Delete</StyledButton>
 		</ItemCard>
 	)
