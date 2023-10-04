@@ -1,15 +1,15 @@
 // Slice - частина стейта
-import { createSlice } from "@reduxjs/toolkit"
-import { fetchProducts } from "./operation"
-import { Product } from "../../types/types"
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchProducts } from "./operation";
+import { Product } from "../../types/types";
 
 type ProductsState = {
-	products: Product[]
-	loading: boolean
-	error: string
-	filter: string
-	total: number
-}
+	products: Product[];
+	loading: boolean;
+	error: string;
+	filter: string;
+	total: number;
+};
 
 const initialState: ProductsState = {
 	products: [],
@@ -17,7 +17,8 @@ const initialState: ProductsState = {
 	loading: false,
 	error: "",
 	total: 0,
-}
+	
+};
 
 // Будуємо слайс - частину стейта
 // Він має об'єкт налаштувань
@@ -31,16 +32,17 @@ const slice = createSlice({
 
 	extraReducers: builder => {
 		builder.addCase(fetchProducts.fulfilled, (state, action) => {
-			state.loading = false
-			state.products = action.payload.products
-			state.total = action.payload.total
-		})
+			state.loading = false;
+			state.products = action.payload.products;
+			state.total = action.payload.total;
+			
+		});
 		builder.addCase(fetchProducts.pending, state => {
-			state.loading = true
-		})
+			state.loading = true;
+		});
 	},
-})
+});
 
 // створюємо редьюсер від нашого слайса для стора - глобальний великий стейт
 // експортуємо редьюсер з слайса
-export const productReducer = slice.reducer
+export const productReducer = slice.reducer;

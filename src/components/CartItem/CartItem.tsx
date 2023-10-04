@@ -1,20 +1,20 @@
-import React from "react"
-import { styled } from "styled-components"
-import { StyledButton } from "../../styles/Global"
-import { Product } from "../../types/types"
-import { useAppDispatch } from "../../hooks/hook"
-import { removeItem } from "../../Redux/Cart/slice"
-import { toast } from "react-toastify"
-import { CartItemCount } from "./CartItemCount"
+import React from "react";
+import { styled } from "styled-components";
+import { StyledButton } from "../../styles/Global";
+import { Product } from "../../types/types";
+import { useAppDispatch } from "../../hooks/hook";
+import { removeItem } from "../../Redux/Cart/slice";
+import { toast } from "react-toastify";
+import { CartItemCount } from "./CartItemCount";
 
 export const CartItem = ({ id, title, price, thumbnail, count }: Product) => {
-	const dispatch = useAppDispatch()
+	const dispatch = useAppDispatch();
 
-	const notify = () => toast(`Ви видалили товар ${title}`)
+	const notify = () => toast(`Ви видалили товар ${title}`);
 	const handleRemove = () => {
-		dispatch(removeItem(id))
-		notify()
-	}
+		dispatch(removeItem(id));
+		notify();
+	};
 	return (
 		<ItemCard>
 			<img alt={title} src={thumbnail} />
@@ -23,8 +23,8 @@ export const CartItem = ({ id, title, price, thumbnail, count }: Product) => {
 			<CartItemCount count={count} id={id} />
 			<StyledButton onClick={handleRemove}>Delete</StyledButton>
 		</ItemCard>
-	)
-}
+	);
+};
 export const ItemCard = styled.li`
 	display: flex;
 	gap: 20px;
@@ -41,4 +41,4 @@ export const ItemCard = styled.li`
 		aspect-ratio: 16/9;
 		object-fit: cover;
 	}
-`
+`;

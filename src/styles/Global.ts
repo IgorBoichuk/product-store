@@ -1,4 +1,4 @@
-import { createGlobalStyle, styled } from "styled-components"
+import { createGlobalStyle, styled } from "styled-components";
 
 export const Global = createGlobalStyle`
 body{
@@ -8,10 +8,10 @@ body{
 *{
   box-sizing: border-box;
 }
-`
+`;
 export const StyledButton = styled.button`
 	padding: 12px 20px;
-	background-color: teal;
+	background-color: ${props => (props.$active ? "blue" : "teal")};
 	color: white;
 	border: none;
 	border-radius: 8px;
@@ -25,4 +25,9 @@ export const StyledButton = styled.button`
 	&:active {
 		box-shadow: none;
 	}
-`
+	&:disabled {
+		cursor: not-allowed;
+		background-color: gray;
+		box-shadow: none;
+	}
+`;
